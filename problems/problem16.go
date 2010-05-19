@@ -1,27 +1,23 @@
 // Problem 16 - http://projecteuler.net/
 //
-// What is the sum of the digits of the number 21000?
+// What is the sum of the digits of the number 2^1000?
 
-// Ruby
-// puts (2**1000).to_s.split(//).map {|x| x.to_i}.inject(0) {|sum,n| sum+n }
 
-package main
+package projecteuler
 
 import (
-	"fmt";
-	"bignum";
-	"strconv";
+	"fmt"
+	"bignum"
+	"strconv"
 )
 
-func main() {
-	sum := 0;
-	two_1000 := bignum.Int(2);
-	for i := 1; i < 1000; i++ {
-		two_1000 = two_1000.Mul(bignum.Int(2))
+func Euler16() string{
+	str := bignum.Nat(2).Pow(1000).String()
+	sum :=0
+	digit := 0
+	for _ ,char := range str{
+		digit,_ = strconv.Atoi(string(char))
+		sum+=digit
 	}
-	for _, v := range two_1000.String() {
-		c, _ := strconv.Atoi(string(v));
-		sum += c;
-	}
-	fmt.Printf("%d\n", sum);
+	return fmt.Sprint(sum)
 }

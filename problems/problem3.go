@@ -10,7 +10,7 @@ import (
 )
 
 func Euler3() string{
-	composite := uint64(600851475143);
+	const composite = 600851475143;
 	factors := primes.Factors(composite)
 	largest := factors[len(factors)-1]
 	s:=fmt.Sprint(largest)

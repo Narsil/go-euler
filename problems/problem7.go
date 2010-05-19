@@ -10,12 +10,11 @@ import (
 )
 
 func Euler7() string{
-	sieve:=primes.FixedSieve(10001)
-	i:=uint64(0)
-	num:=uint64(0)
-	for {
-		num=i
-		i=<-sieve
+	limit:=10001
+	sieve:=primes.FastSieve()
+	num:=0
+	for i:=0;i<limit;i++{
+		num=<-sieve
 	}
 	return fmt.Sprint(num)
 }

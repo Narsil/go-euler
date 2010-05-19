@@ -4,25 +4,22 @@
 // What is the value of the first triangle number
 // to have over five hundred divisors?
 
-package main
+package projecteuler
 
 import (
-	"fmt";
-	"./primes";
-	// "math";
+	"fmt"
+	"primes"
 )
 
 
-func main() {
-	triangle := int64(1);
-	c := int64(0);
-	for i := triangle + 1; ; i++ {
-		triangle += i;
-		c = primes.Divisor_count(triangle);
-		fmt.Printf("%d %d\n", triangle, c);
-		if c > 500 {
+func Euler12() string {
+	triangle := uint64(1)
+	for i:=uint64(2); ;i++{
+		c := primes.NumDivisors(triangle)
+		if c>500{
 			break
 		}
+		triangle+=i
 	}
-	fmt.Printf("%d\n", triangle);
+	return fmt.Sprint(triangle);
 }

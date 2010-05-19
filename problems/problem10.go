@@ -11,8 +11,8 @@ import (
 
 
 func Euler10() string{
-	sum := uint64(0);
-	for i:=uint64(0);i<2000000;i=<-primes.Sieve() {
+	sum := 0;
+	for i:=0;i<2000000;i=<-primes.FastSieve() {
 		sum += i
 	}
 	return fmt.Sprint(sum);

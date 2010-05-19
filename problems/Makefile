@@ -13,5 +13,13 @@ GOFILES=\
 	problem8.go\
 	problem9.go\
 	problem10.go\
+	problem11.go\
+	problem12.go\
+	problem13.go\
+	problem14.go\
+	problem15.go\
+	problem16.go\
+	problem17.go\
+	problem18.go\
 
 include $(GOROOT)/src/Make.pkg
