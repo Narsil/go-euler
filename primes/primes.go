@@ -240,6 +240,34 @@ func Factors(n uint64) []uint64{
 	return factors
 }
 
+func ProperDivisors(n uint64) []uint64{
+	divisors := make([]uint64,100)
+	divisors[0] = 1
+	count:=1
+	for i:=uint64(2);i<=uint64(math.Sqrt(float64(n)));i++{
+		if n%i==0{
+			if i==uint64(math.Sqrt(float64(n))){
+				divisors[2*count-1]=i
+				divisors[2*count]=0
+			}else{
+				divisors[2*count-1]=i
+				divisors[2*count]=n/i
+			}
+			count++
+		}
+	}
+	return divisors
+}
+
+func SumDivisors(n uint64) uint64{
+	divisors:=ProperDivisors(n)
+	sum:=uint64(0)
+	for _,divisor := range divisors{
+		sum+=divisor
+	}
+	return sum
+}
+
 func NumDivisors(n uint64) uint64{
 	//Buggy implementation, if n is a perfect square then the number of divisors will necessary be one too much
 	divisors:=uint64(1)
