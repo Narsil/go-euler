@@ -46,9 +46,9 @@ func Euler(n int) string {
 			return Euler21()
 		case 22:
 			return Euler22()
-		/*
 		case 23:
 			return Euler23()
+		/*
 		case 24:
 			return Euler24()
 		case 25:

@@ -5,7 +5,7 @@ package projecteuler
 
 import (
 	"fmt"
-	"bignum"
+	"exp/bignum"
 	"strconv"
 )
 

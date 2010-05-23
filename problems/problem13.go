@@ -7,7 +7,7 @@ package projecteuler
 import (
 	"fmt"
 	"strings"
-	"bignum"
+	"exp/bignum"
 )
 
 func Euler13() string{

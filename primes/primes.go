@@ -246,7 +246,7 @@ func ProperDivisors(n uint64) []uint64{
 	count:=1
 	for i:=uint64(2);i<=uint64(math.Sqrt(float64(n)));i++{
 		if n%i==0{
-			if i==uint64(math.Sqrt(float64(n))){
+			if float64(i)==math.Sqrt(float64(n)){
 				divisors[2*count-1]=i
 				divisors[2*count]=0
 			}else{
