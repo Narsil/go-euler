@@ -54,7 +54,6 @@ func Euler(n int) string {
 			return Euler25()
 		case 26:
 			return Euler26()
-		/*
 		case 27:
 			return Euler27()
 		case 28:
@@ -63,6 +62,7 @@ func Euler(n int) string {
             return Euler29()
         case 30:
             return Euler30()
+		/*
         case 31:
             return Euler31()
         case 32:
