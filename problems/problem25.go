@@ -1,25 +1,25 @@
-// Problem 16 - http://projecteuler.net/
+// Problem 25 - http://projecteuler.net/
 //
 // What is the first term in the Fibonacci sequence to contain 1000 digits?
 
-package main
+package projecteuler
 
 import (
-	"fmt";
-	"bignum";
+	"fmt"
+	"exp/bignum"
 )
 
-func main() {
-	a := bignum.Int(1);
-	b := bignum.Int(1);
-	i := 2;
+func Euler25() string{
+	a := bignum.Int(1)
+	b := bignum.Int(1)
+	i := 2
 	for {
-		a, b = b, a.Add(b);
-		i += 1;
+		a, b = b, a.Add(b)
+		i++
 		if len(b.String()) == 1000 {
 			break
 		}
 
 	}
-	fmt.Printf("%d\n", i);
+	return fmt.Sprint(i)
 }
