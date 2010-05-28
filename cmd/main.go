@@ -7,8 +7,8 @@ import (
 )
 
 func main(){
-	for i:=20;i<37;i++ {
-		if i==10 || i==23 || i==25 || i==27 || i==30{
+	for i:=1;i<37;i++ {
+		if i==10{
 			//problems takes forever, needs optimization
 			continue
 		}

@@ -6,8 +6,8 @@
 package projecteuler
 
 import (
-	"fmt";
-	"strconv";
+	"fmt"
+	"strconv"
 )
 
 func palidrome(s string) bool	{ return reverse(s) == s }

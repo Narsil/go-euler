@@ -3,15 +3,15 @@ include $(GOROOT)/src/Make.$(GOARCH)
 TARG=projecteuler
 GOFILES=\
 	problems.go\
-	problem1.go\
-	problem2.go\
-	problem3.go\
-	problem4.go\
-	problem5.go\
-	problem6.go\
-	problem7.go\
-	problem8.go\
-	problem9.go\
+	problem01.go\
+	problem02.go\
+	problem03.go\
+	problem04.go\
+	problem05.go\
+	problem06.go\
+	problem07.go\
+	problem08.go\
+	problem09.go\
 	problem10.go\
 	problem11.go\
 	problem12.go\
@@ -37,5 +37,7 @@ GOFILES=\
 	problem32.go\
 	problem33.go\
 	problem34.go\
+	problem35.go\
+	problem36.go\
 
 include $(GOROOT)/src/Make.pkg

@@ -3,27 +3,14 @@
 // Find the sum of all numbers, less than one million, 
 // which are palindromic in base 10 and base 2.
 
-package main
+package projecteuler
 
 import (
-	"fmt";
-	"strconv";
-	"strings";
+	"fmt"
+	"strconv"
 )
 
-func palidrome(s string) bool	{ return reverse(s) == s }
-
-func reverse(s string) string {
-	orig := strings.Bytes(s);
-	len := len(s);
-	n := make([]byte, len);
-	for i := 0; i < len; i++ {
-		n[len-i-1] = orig[i]
-	}
-	return string(n);
-}
-
-func main() {
+func Euler36() string{
 	sum := 0;
 	for i := 1; i < 1000000; i++ {
 		if palidrome(strconv.Itoa(i)) &&
@@ -31,5 +18,5 @@ func main() {
 			sum += i;
 		}
 	}
-	fmt.Printf("%d\n", sum);
+	return fmt.Sprint(sum);
 }

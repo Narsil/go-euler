@@ -30,3 +30,11 @@ func Permute(str []byte) int{
     return 1
 }
 
+func Rotate(str []byte) int{
+	tmp := str[0]
+	for i:=0;i<len(str)-1;i++{
+		str[i]=str[i+1]
+	}
+	str[len(str)-1]=tmp
+	return 1
+}
