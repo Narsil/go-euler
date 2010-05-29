@@ -41,5 +41,7 @@ GOFILES=\
 	problem36.go\
 	problem37.go\
 	problem38.go\
+	problem39.go\
+	problem40.go\
 
 include $(GOROOT)/src/Make.pkg
