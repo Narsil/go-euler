@@ -74,6 +74,10 @@ func Euler(n int) string {
             return Euler35()
         case 36:
             return Euler36()
+		case 37:
+			return Euler37()
+		case 38:
+			return Euler38()
 		default:
 			return "Problem not solved"
 	}

@@ -10,8 +10,12 @@ import (
 	"strings"
 )
 
-func pandigital(a,b,c string)bool{
-	digits := strings.Split(a+b+c,"",0)
+func concatPandigital(a,b,c string)bool{
+	return pandigital(a+b+c)
+}
+
+func pandigital(a string)bool{
+	digits := strings.Split(a,"",0)
 	sort.SortStrings(digits)
 	str := strings.Join(digits,"")
 	if str == "123456789"{
@@ -32,7 +36,7 @@ func Euler32()string{
 			}else if len(stra) +len(strb) +len(strab) <9{
 				continue
 			}else{
-				if pandigital(stra,strb,strab){
+				if concatPandigital(stra,strb,strab){
 					results[a*b]=1
 				}
 			}
