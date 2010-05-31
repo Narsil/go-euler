@@ -4,7 +4,7 @@ func swap(s []byte, a,b int) {
     s[a],s[b] = s[b],s[a]
 }
 
-func Permute(str []byte) int{
+func Permute(str []byte) bool{
     length := len(str)
     key := length-1
     newkey := key
@@ -13,7 +13,7 @@ func Permute(str []byte) int{
     }
     key--
     if key < 0{
-        return 0
+        return false
     }
     newkey = length-1
     for ;newkey > key && str[newkey] <= str[key];{
@@ -27,7 +27,7 @@ func Permute(str []byte) int{
         key++
         length--
     }
-    return 1
+    return true
 }
 
 func Rotate(str []byte) int{

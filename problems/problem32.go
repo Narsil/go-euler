@@ -18,7 +18,7 @@ func pandigital(a string)bool{
 	digits := strings.Split(a,"",0)
 	sort.SortStrings(digits)
 	str := strings.Join(digits,"")
-	if str == "123456789"{
+	if str == "123456789"[0:len(str)]{
 		return true
 	}
 	return false
