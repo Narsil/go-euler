@@ -8,14 +8,13 @@ package projecteuler
 import "fmt"
 
 func Euler2() string {
-	sum := 0;
+	sum := 0
 	for a, b := 1, 2; b < 4000000; {
 		if b%2 == 0 {
 			sum += b
 		}
-		a, b = b, b+a;
+		a, b = b, b+a
 	}
 	s := fmt.Sprint(sum)
 	return s
 }
-

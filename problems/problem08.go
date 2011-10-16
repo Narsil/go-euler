@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func Euler8() string{
+func Euler8() string {
 	thousand_digits := "73167176531330624919225119674426574742355349194934" +
 		"96983520312774506326239578318016984801869478851843" +
 		"85861560789112949495459501737958331952853208805511" +
@@ -36,7 +36,7 @@ func Euler8() string{
 		bytes := thousand_digits[i : i+5]
 		sum = 1
 		for _, v := range bytes {
-			t, _ := strconv.Atoi(string(v));
+			t, _ := strconv.Atoi(string(v))
 			sum = sum * t
 		}
 		if sum > max {

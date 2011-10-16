@@ -9,28 +9,28 @@ import (
 	"math"
 )
 
-func isSquare(a int)bool{
+func isSquare(a int) bool {
 	sq := math.Sqrt(float64(a))
 	return sq == float64(int(sq))
 }
 
-func Euler46()string{
+func Euler46() string {
 	sieve := primes.FastSieve()
 	primes := make(map[int]int)
-	for i:=0;i<10000;i++{
+	for i := 0; i < 10000; i++ {
 		prime := <-sieve
-		primes[i]=prime
+		primes[i] = prime
 	}
-	for compo:=9;;compo+=2{
-		found:=true
-		for i:=0;i<compo;i++ {
+	for compo := 9; ; compo += 2 {
+		found := true
+		for i := 0; i < compo; i++ {
 			diff := compo - primes[i]
-			if diff%2 == 0 && isSquare((diff)/2){
-				found=false
+			if diff%2 == 0 && isSquare((diff)/2) {
+				found = false
 				break
 			}
 		}
-		if found{
+		if found {
 			return fmt.Sprint(compo)
 		}
 	}

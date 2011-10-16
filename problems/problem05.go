@@ -17,17 +17,17 @@ func divisible(n int64) bool {
 			return false
 		}
 	}
-	return true;
+	return true
 }
 
-func Euler5() string{
-	best := int64(20);
+func Euler5() string {
+	best := int64(20)
 	for {
 		if divisible(best) {
 			break
 		}
-		best += 20;
+		best += 20
 	}
-	s:=fmt.Sprint(best)
+	s := fmt.Sprint(best)
 	return s
 }

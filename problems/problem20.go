@@ -9,13 +9,13 @@ import (
 	"strconv"
 )
 
-func Euler20() string{
-    n := big.NewInt(0)
+func Euler20() string {
+	n := big.NewInt(0)
 	str := n.MulRange(1, 100).String()
-	num:=0
-	digit:=0
-	for _,char :=range str{
-		digit,_ = strconv.Atoi(string(char))
+	num := 0
+	digit := 0
+	for _, char := range str {
+		digit, _ = strconv.Atoi(string(char))
 		num += digit
 	}
 	return fmt.Sprint(num)

@@ -9,10 +9,10 @@ import (
 	"fmt"
 )
 
-func Euler3() string{
-	const composite = 600851475143;
+func Euler3() string {
+	const composite = 600851475143
 	factors := primes.Factors(composite)
 	largest := factors[len(factors)-1]
-	s:=fmt.Sprint(largest)
+	s := fmt.Sprint(largest)
 	return s
 }

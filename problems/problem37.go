@@ -9,35 +9,35 @@ import (
 	"strconv"
 )
 
-func isTruncable(prime int, primes map[int]int)bool{
+func isTruncable(prime int, primes map[int]int) bool {
 	stra := strconv.Itoa(prime)
-	for i:=1; i<len(stra);i++{
-		newnum,_ := strconv.Atoi(stra[i:len(stra)])
-		_,presence := primes[newnum]
-		if !presence{
+	for i := 1; i < len(stra); i++ {
+		newnum, _ := strconv.Atoi(stra[i:len(stra)])
+		_, presence := primes[newnum]
+		if !presence {
 			return false
 		}
-		newnum,_ = strconv.Atoi(stra[0:len(stra)-i])
-        _,presence = primes[newnum]
-		if !presence{
-            return false
-        }
+		newnum, _ = strconv.Atoi(stra[0 : len(stra)-i])
+		_, presence = primes[newnum]
+		if !presence {
+			return false
+		}
 	}
 	return true
 }
 
-func Euler37() string{
-	sum:=0
+func Euler37() string {
+	sum := 0
 	sieve := primes.FastSieve()
-	count:=0
-	primes := make (map[int]int)
-	for prime:=<-sieve;count<11;prime=<-sieve{
-		primes[prime]=prime
-		if prime<10{
+	count := 0
+	primes := make(map[int]int)
+	for prime := <-sieve; count < 11; prime = <-sieve {
+		primes[prime] = prime
+		if prime < 10 {
 			continue
 		}
-		if isTruncable(prime,primes){
-			sum+=prime
+		if isTruncable(prime, primes) {
+			sum += prime
 			count++
 		}
 	}

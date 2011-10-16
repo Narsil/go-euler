@@ -9,12 +9,12 @@ import (
 	"primes"
 )
 
-func Euler7() string{
-	limit:=10001
-	sieve:=primes.FastSieve()
-	num:=0
-	for i:=0;i<limit;i++{
-		num=<-sieve
+func Euler7() string {
+	limit := 10001
+	sieve := primes.FastSieve()
+	num := 0
+	for i := 0; i < limit; i++ {
+		num = <-sieve
 	}
 	return fmt.Sprint(num)
 }

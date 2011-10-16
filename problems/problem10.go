@@ -9,11 +9,10 @@ import (
 	"primes"
 )
 
-
-func Euler10() string{
-	sum := 0;
-	for i:=0;i<2000000;i=<-primes.FastSieve() {
+func Euler10() string {
+	sum := 0
+	for i := 0; i < 2000000; i = <-primes.FastSieve() {
 		sum += i
 	}
-	return fmt.Sprint(sum);
+	return fmt.Sprint(sum)
 }

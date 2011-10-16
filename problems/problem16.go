@@ -8,17 +8,17 @@ package projecteuler
 import (
 	"fmt"
 	"big"
-    "bigextension"
+	"bigextension"
 	"strconv"
 )
 
-func Euler16() string{
+func Euler16() string {
 	str := bigextension.Pow(big.NewInt(2), 1000).String()
-	sum :=0
+	sum := 0
 	digit := 0
-	for _ ,char := range str{
-		digit,_ = strconv.Atoi(string(char))
-		sum+=digit
+	for _, char := range str {
+		digit, _ = strconv.Atoi(string(char))
+		sum += digit
 	}
 	return fmt.Sprint(sum)
 }

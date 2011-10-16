@@ -170,7 +170,7 @@ func FastSieve() chan int {
 //example of the sieve, it's easier to read.
 func generate() chan uint64 {
 	ch := make(chan uint64)
-	go func(){
+	go func() {
 		for i := uint64(2); ; i++ {
 			ch <- i
 		}
@@ -183,7 +183,7 @@ func filter(in chan uint64, prime uint64) chan uint64 {
 	out := make(chan uint64)
 	go func() {
 		for {
-			if i := <-in; i % prime != 0 {
+			if i := <-in; i%prime != 0 {
 				out <- i
 			}
 		}
@@ -192,7 +192,7 @@ func filter(in chan uint64, prime uint64) chan uint64 {
 }
 
 // The prime sieve: Daisy-chain Filter processes together.
-func Sieve() <-chan uint64{
+func Sieve() <-chan uint64 {
 	out := make(chan uint64)
 	go func() {
 		ch := generate()
@@ -205,18 +205,18 @@ func Sieve() <-chan uint64{
 	return out
 }
 
-func bruteSieve() <-chan uint64{
-	out := make(chan uint64,100)
+func bruteSieve() <-chan uint64 {
+	out := make(chan uint64, 100)
 	go func() {
-		for i:=uint64(2);;i++{
-			prime:=true
-			for j:=uint64(2);j<uint64(math.Sqrt(float64(i)));j++{
-				if i%j==0{
-					prime=false
+		for i := uint64(2); ; i++ {
+			prime := true
+			for j := uint64(2); j < uint64(math.Sqrt(float64(i))); j++ {
+				if i%j == 0 {
+					prime = false
 					break
 				}
 			}
-			if prime{
+			if prime {
 				out <- i
 			}
 		}
@@ -224,34 +224,34 @@ func bruteSieve() <-chan uint64{
 	return out
 }
 
-func Factors(n uint64) []uint64{
-	factors := make ([]uint64,0,100)//Hope 100 is enough
-	sieve:=Sieve()
-	for i:=<-sieve;;i=<-sieve{
-		if n==1{
+func Factors(n uint64) []uint64 {
+	factors := make([]uint64, 0, 100) //Hope 100 is enough
+	sieve := Sieve()
+	for i := <-sieve; ; i = <-sieve {
+		if n == 1 {
 			break
 		}
-		for ;n%i==0; {
-			n=n/i
-			factors = factors[0:len(factors)+1]
-			factors[len(factors)-1]=i
+		for n%i == 0 {
+			n = n / i
+			factors = factors[0 : len(factors)+1]
+			factors[len(factors)-1] = i
 		}
 	}
 	return factors
 }
 
-func ProperDivisors(n uint64) []uint64{
-	divisors := make([]uint64,100)
+func ProperDivisors(n uint64) []uint64 {
+	divisors := make([]uint64, 100)
 	divisors[0] = 1
-	count:=1
-	for i:=uint64(2);i<=uint64(math.Sqrt(float64(n)));i++{
-		if n%i==0{
-			if float64(i)==math.Sqrt(float64(n)){
-				divisors[2*count-1]=i
-				divisors[2*count]=0
-			}else{
-				divisors[2*count-1]=i
-				divisors[2*count]=n/i
+	count := 1
+	for i := uint64(2); i <= uint64(math.Sqrt(float64(n))); i++ {
+		if n%i == 0 {
+			if float64(i) == math.Sqrt(float64(n)) {
+				divisors[2*count-1] = i
+				divisors[2*count] = 0
+			} else {
+				divisors[2*count-1] = i
+				divisors[2*count] = n / i
 			}
 			count++
 		}
@@ -259,25 +259,24 @@ func ProperDivisors(n uint64) []uint64{
 	return divisors
 }
 
-func SumDivisors(n uint64) uint64{
-	divisors:=ProperDivisors(n)
-	sum:=uint64(0)
-	for _,divisor := range divisors{
-		sum+=divisor
+func SumDivisors(n uint64) uint64 {
+	divisors := ProperDivisors(n)
+	sum := uint64(0)
+	for _, divisor := range divisors {
+		sum += divisor
 	}
 	return sum
 }
 
-func NumDivisors(n uint64) uint64{
+func NumDivisors(n uint64) uint64 {
 	//Buggy implementation, if n is a perfect square then the number of divisors will necessary be one too much
-	divisors:=uint64(1)
-	for i:=uint64(2);i<=uint64(math.Sqrt(float64(n)));i++{
-		if n%i==0{
+	divisors := uint64(1)
+	for i := uint64(2); i <= uint64(math.Sqrt(float64(n))); i++ {
+		if n%i == 0 {
 			divisors++
 		}
 	}
-	divisors*=2
+	divisors *= 2
 	return divisors
 
 }
-

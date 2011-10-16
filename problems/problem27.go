@@ -8,17 +8,17 @@ import (
 	"big"
 )
 
-func Euler27() string{
-	max:=0
-	prod:=0
-	for a:=-999;a<1000;a++{
-		for b:=-999;b<1000;b++{
-			n:=0
-			for ;big.ProbablyPrime(big.NewInt(int64(n*n+a*n+b)),1);n++{
+func Euler27() string {
+	max := 0
+	prod := 0
+	for a := -999; a < 1000; a++ {
+		for b := -999; b < 1000; b++ {
+			n := 0
+			for ; big.ProbablyPrime(big.NewInt(int64(n*n+a*n+b)), 1); n++ {
 			}
-			if n>max{
-				max=n
-				prod = a*b
+			if n > max {
+				max = n
+				prod = a * b
 			}
 		}
 	}

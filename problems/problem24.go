@@ -8,10 +8,10 @@ import (
 	"arithmetics"
 )
 
-func Euler24()string{
+func Euler24() string {
 	str := "0123456789"
 	bytes := []byte(str)
-	for i:=1;i<1000000;i++{
+	for i := 1; i < 1000000; i++ {
 		arithmetics.Permute(bytes)
 	}
 	return fmt.Sprint(string(bytes))

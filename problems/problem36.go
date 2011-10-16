@@ -10,13 +10,13 @@ import (
 	"strconv"
 )
 
-func Euler36() string{
-	sum := 0;
+func Euler36() string {
+	sum := 0
 	for i := 1; i < 1000000; i++ {
 		if palidrome(strconv.Itoa(i)) &&
-		   palidrome(strconv.Itob(i, 2)) {
-			sum += i;
+			palidrome(strconv.Itob(i, 2)) {
+			sum += i
 		}
 	}
-	return fmt.Sprint(sum);
+	return fmt.Sprint(sum)
 }

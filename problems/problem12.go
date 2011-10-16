@@ -11,15 +11,14 @@ import (
 	"primes"
 )
 
-
 func Euler12() string {
 	triangle := uint64(1)
-	for i:=uint64(2); ;i++{
+	for i := uint64(2); ; i++ {
 		c := primes.NumDivisors(triangle)
-		if c>500{
+		if c > 500 {
 			break
 		}
-		triangle+=i
+		triangle += i
 	}
-	return fmt.Sprint(triangle);
+	return fmt.Sprint(triangle)
 }

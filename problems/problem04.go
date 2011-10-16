@@ -10,20 +10,20 @@ import (
 	"strconv"
 )
 
-func palidrome(s string) bool	{ return reverse(s) == s }
+func palidrome(s string) bool { return reverse(s) == s }
 
 func reverse(s string) string {
-	orig := string(s);
-	len := len(s);
-	n := make([]byte, len);
+	orig := string(s)
+	len := len(s)
+	n := make([]byte, len)
 	for i := 0; i < len; i++ {
 		n[len-i-1] = orig[i]
 	}
-	return string(n);
+	return string(n)
 }
 
-func Euler4() string{
-	best := 0;
+func Euler4() string {
+	best := 0
 	for i := 999; i > 99; i-- {
 		for j := 999; j > 99; j-- {
 			if palidrome(strconv.Itoa(j * i)) {
@@ -33,6 +33,6 @@ func Euler4() string{
 			}
 		}
 	}
-	s:=fmt.Sprint(best)
-	return s;
+	s := fmt.Sprint(best)
+	return s
 }

@@ -8,19 +8,19 @@ import (
 	"strconv"
 )
 
-func Euler38() string{
-	max:=0
-	for i:=0;i<10000;i++{
-		str:=""
-		for j :=1;j<10;j++{
-			str += strconv.Itoa(j*i)
-			if len(str)>10{
+func Euler38() string {
+	max := 0
+	for i := 0; i < 10000; i++ {
+		str := ""
+		for j := 1; j < 10; j++ {
+			str += strconv.Itoa(j * i)
+			if len(str) > 10 {
 				break
 			}
-			if pandigital(str){
-				num,_ := strconv.Atoi(str)
-				if num>max{
-					max=num
+			if pandigital(str) {
+				num, _ := strconv.Atoi(str)
+				if num > max {
+					max = num
 				}
 			}
 		}

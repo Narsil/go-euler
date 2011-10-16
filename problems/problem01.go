@@ -7,13 +7,13 @@ package projecteuler
 
 import "fmt"
 
-func Euler1() string{
+func Euler1() string {
 	sum := 0
 	for i := 0; i < 1000; i++ {
 		if i%3 == 0 || i%5 == 0 {
 			sum += i
 		}
 	}
-	s:=fmt.Sprint(sum)
+	s := fmt.Sprint(sum)
 	return s
 }

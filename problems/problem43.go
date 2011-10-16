@@ -9,22 +9,22 @@ import (
 	"strconv"
 )
 
-var smallprimes = []uint64{2,3,5,7,11,13,17}
+var smallprimes = []uint64{2, 3, 5, 7, 11, 13, 17}
 
-func Euler43() string{
+func Euler43() string {
 	sum := uint64(0)
-    pand := []byte("1023456789")
-    for ;arithmetics.Permute(pand);{
+	pand := []byte("1023456789")
+	for arithmetics.Permute(pand) {
 		hasProperty := true
-		for i,prime := range smallprimes{
-			num,_ := strconv.Atoui64(string(pand[1+i:4+i]))
-			if num%prime!=0{
+		for i, prime := range smallprimes {
+			num, _ := strconv.Atoui64(string(pand[1+i : 4+i]))
+			if num%prime != 0 {
 				hasProperty = false
 				break
 			}
 		}
-        if hasProperty{
-			num,_ := strconv.Atoui64(string(pand))
+		if hasProperty {
+			num, _ := strconv.Atoui64(string(pand))
 			sum += num
 		}
 	}
