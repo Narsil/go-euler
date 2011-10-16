@@ -7,12 +7,13 @@ package projecteuler
 
 import (
 	"fmt"
-	"exp/bignum"
+	"big"
+    "bigextension"
 	"strconv"
 )
 
 func Euler16() string{
-	str := bignum.Nat(2).Pow(1000).String()
+	str := bigextension.Pow(big.NewInt(2), 1000).String()
 	sum :=0
 	digit := 0
 	for _ ,char := range str{

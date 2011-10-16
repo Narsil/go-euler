@@ -5,15 +5,16 @@ package projecteuler
 
 import (
 	"fmt"
-	"exp/bignum"
+	"big"
+    "bigextension"
 )
 
 func Euler29()string{
 	distinct := make(map[string]int)
 	for a:=2;a<=100;a++{
 		for b:=a;b<=100;b++{
-			distinct[bignum.Nat(uint64(a)).Pow(uint(b)).String()]=0
-			distinct[bignum.Nat(uint64(b)).Pow(uint(a)).String()]=0
+			distinct[bigextension.Pow(big.NewInt(int64(a)),int64(b)).String()]=0
+			distinct[bigextension.Pow(big.NewInt(int64(b)),int64(a)).String()]=0
 		}
 	}
 	return fmt.Sprint(len(distinct))

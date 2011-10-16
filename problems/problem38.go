@@ -13,7 +13,7 @@ func Euler38() string{
 	for i:=0;i<10000;i++{
 		str:=""
 		for j :=1;j<10;j++{
-			str+= strconv.Itoa(j*i)
+			str += strconv.Itoa(j*i)
 			if len(str)>10{
 				break
 			}

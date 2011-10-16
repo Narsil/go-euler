@@ -5,13 +5,19 @@ package projecteuler
 
 import (
 	"fmt"
-	"exp/bignum"
+	"big"
 )
 
 func Euler15() string{
 	//We need to choose Right or Down, 40 times, but we need
 	//to choose 20 Right and 20 Down (no backtracking).
-	//This number is just 20C40, expressed with bignums
+	//This number is just 20C40, expressed with bigs
 	//to avoid overflow
-	return fmt.Sprint(bignum.Fact(40).Div(bignum.Fact(20).Pow(2)))
+    fact := big.NewInt(0)
+    fact.MulRange(1, 20)
+    fact.Mul(fact, fact)
+
+    bigfact := big.NewInt(0)
+    bigfact.MulRange(1, 40)
+	return fmt.Sprint(bigfact.Div(bigfact, fact))
 }

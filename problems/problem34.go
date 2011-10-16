@@ -6,19 +6,20 @@ package projecteuler
 import (
 	"fmt"
 	"strconv"
-	"exp/bignum"
+	"big"
 )
 
 func Euler34()string{
 	sum:=0
 	for a:=10;a<100000;a++{// lowest power of ten with the good answer,guesswork
 		digits := strconv.Itoa(a)
-		sumFact:=bignum.Nat(uint64(0))
+		sumFact:=big.NewInt(0)
+        fact := big.NewInt(0)
 		for _,char := range digits{
 			digit,_ := strconv.Atoi(string(char))
-			sumFact=sumFact.Add(bignum.Fact(uint(digit)))
+			sumFact=sumFact.Add(sumFact, fact.MulRange(1, int64(digit)))
 		}
-		if sumFact.Value()==uint64(a){
+		if sumFact.Int64()==int64(a){
 			sum+=a
 		}
 	}

@@ -7,7 +7,7 @@ import (
 )
 
 func main(){
-	for i:=1;i<37;i++ {
+	for i:=1;i<47;i++ {
 		if i==10{
 			//problems takes forever, needs optimization
 			continue

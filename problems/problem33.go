@@ -6,7 +6,7 @@ package projecteuler
 import (
 	"fmt"
 	"strconv"
-	"exp/bignum"
+	"big"
 )
 
 func hasProperty( a,b int ) bool{
@@ -29,9 +29,9 @@ func hasProperty( a,b int ) bool{
 	}else{
 		return false
 	}
-	newa,_ := strconv.Atof(string(num))
-    newb,_ := strconv.Atof(string(den))
-    if float(a)/float(b) == newa/newb{
+	newa,_ := strconv.Atof64(string(num))
+    newb,_ := strconv.Atof64(string(den))
+    if float64(a)/float64(b) == newa/newb{
 		return true
 	}
 	return false
@@ -48,14 +48,14 @@ func gcd (u,v int) int{
 }
 
 func Euler33()string{
-	prod:=bignum.Rat(1,1)
+	prod:=big.NewRat(1,1)
 	for a:=10;a<100;a++{
 		for b:=a+1;b<100;b++{
 			if hasProperty(a,b){
-				prod= prod.Mul(bignum.Rat(int64(a),int64(b)))
+				prod.Mul(prod, big.NewRat(int64(a),int64(b)))
 			}
 		}
 	}
-	_,den := prod.Value()
+	den := prod.Denom()
 	return fmt.Sprint(den.String())
 }

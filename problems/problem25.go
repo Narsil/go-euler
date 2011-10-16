@@ -6,15 +6,18 @@ package projecteuler
 
 import (
 	"fmt"
-	"exp/bignum"
+	"big"
 )
 
 func Euler25() string{
-	a := bignum.Int(1)
-	b := bignum.Int(1)
+	a := big.NewInt(1)
+	b := big.NewInt(1)
+    tmp := big.NewInt(0)
 	i := 2
 	for {
-		a, b = b, a.Add(b)
+		tmp.Add(a, b)
+        b = a
+        a = tmp
 		i++
 		if len(b.String()) == 1000 {
 			break
